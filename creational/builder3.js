@@ -17,7 +17,7 @@
 class Person {
   constructor() {
     // Private details
-    this.name = ''
+    this.name = 'Anonymous'
     this.address = ''
     this.country = ''
     this.age = ''
@@ -26,11 +26,11 @@ class Person {
     this.sex = ''
 
     // Job details
-    this.workplace = ''
-    this.role = ''
-    this.hasCompanyCar = ''
-    this.hasCompanyMobile = ''
-    this.income = ''
+    this.workplace = 'nowhere at the moment'
+    this.role = 'unemployed'
+    this.hasCompanyCar = 'no'
+    this.hasCompanyMobile = 'no'
+    this.income = 0
   }
 
   toString() {
@@ -133,10 +133,16 @@ class PersonJobBuilder extends PersonBuilder {
 }
 
 // TESTING
-
 const pb = new PersonBuilder()
 let matt = pb
   .lives.who('Matt').age(42).atAddress('13, High Street, LondonTown').in('UK').weights(65)
   .works.atCompany('Goooogle').as('seatWarmer').earns(200000).build()
 
 console.log(matt.toString())
+
+// --
+const john = new PersonBuilder()
+  .lives.who('John Smith').age(64).atAddress('1 Commercial Rd').in('ROI')
+  .works.earns(15000).build()
+
+console.log(john.toString())
